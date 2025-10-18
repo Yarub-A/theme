@@ -1,0 +1,119 @@
+/*
+Theme Name: EUSS University Theme
+Theme URI: https://example.com/euss-theme
+Author: EUSS Dev Team
+Author URI: https://example.com
+Description: Production-ready bilingual theme for European University for Smart Sciences (EUSS) with auto-provisioning, Polylang, ACF, and security hardening.
+Version: 1.0.0
+Requires at least: 6.2
+Tested up to: 6.4
+Requires PHP: 8.0
+Text Domain: theme-euss
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: education, bilingual, accessibility-ready, custom-menu, custom-logo, rtl-language-support
+*/
+
+/* Primary: Burgundy, Secondary: Gold/Cream, Neutral: Dark Blue */
+:root {
+  --color-primary: #7b1c3c;
+  --color-secondary: #d4af37;
+  --color-neutral: #0b1f3a;
+  --font-ar: 'Cairo', 'Tajawal', sans-serif;
+  --font-en: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-en);
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+body.rtl {
+  font-family: var(--font-ar);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-secondary);
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.site-header {
+  color: #fff;
+}
+
+.top-bar {
+  background-color: var(--color-primary);
+}
+
+.main-navbar {
+  background-color: var(--color-neutral);
+}
+
+.site-footer {
+  background-color: var(--color-neutral);
+  color: #fff;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, rgba(123, 28, 60, 0.9), rgba(11, 31, 58, 0.8));
+  color: #fff;
+  padding: 120px 0;
+}
+
+.hero-section .btn-primary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #0b1f3a;
+  font-weight: 700;
+}
+
+.footer-widgets {
+  padding: 60px 0;
+}
+
+.footer-bottom {
+  background-color: #061225;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+[dir="rtl"] .navbar-nav {
+  direction: rtl;
+}
+
+[dir="rtl"] .navbar-nav .dropdown-menu {
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 80px 0;
+    text-align: center;
+  }
+}

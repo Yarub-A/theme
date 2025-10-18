@@ -34,6 +34,20 @@ function theme_euss_get_direction() {
     return 'ltr';
 }
 
+function theme_euss_get_acf_field( $field_key, $default = null, $post_id = null ) {
+    if ( ! function_exists( 'get_field' ) ) {
+        return $default;
+    }
+
+    $value = null === $post_id ? get_field( $field_key ) : get_field( $field_key, $post_id );
+
+    if ( null === $value || false === $value ) {
+        return $default;
+    }
+
+    return $value;
+}
+
 function theme_euss_breadcrumbs() {
     if ( is_front_page() ) {
         return;

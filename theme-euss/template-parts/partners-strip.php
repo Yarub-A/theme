@@ -5,7 +5,7 @@
  * @package theme-euss
  */
 
-$partners = get_field( 'partners' );
+$partners = theme_euss_get_acf_field( 'partners', [] );
 if ( ! is_array( $partners ) ) {
     $partners = [];
 }

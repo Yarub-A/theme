@@ -5,7 +5,7 @@
  * @package theme-euss
  */
 
-$hero = get_field( 'hero' );
+$hero = theme_euss_get_acf_field( 'hero', [] );
 if ( ! is_array( $hero ) ) {
     $hero = [];
 }

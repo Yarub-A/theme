@@ -1,0 +1,12 @@
+body {
+    font-family: var(--font-en, 'Inter', sans-serif);
+}
+
+body.rtl {
+    direction: rtl;
+    font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.editor-styles-wrapper .btn {
+    border-radius: 999px;
+}

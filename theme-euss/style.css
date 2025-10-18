@@ -1,0 +1,405 @@
+/*
+Theme Name: EUSS University Theme
+Theme URI: https://example.com/euss-theme
+Author: EUSS Dev Team
+Author URI: https://example.com
+Description: Production-ready bilingual theme for European University for Smart Sciences (EUSS) with auto-provisioning, Polylang, ACF, and security hardening.
+Version: 1.0.0
+Requires at least: 6.2
+Tested up to: 6.4
+Requires PHP: 8.0
+Text Domain: theme-euss
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: education, bilingual, accessibility-ready, custom-menu, custom-logo, rtl-language-support
+*/
+
+/* Primary: Burgundy, Secondary: Gold/Cream, Neutral: Dark Blue */
+:root {
+  --color-primary: #7b1c3c;
+  --color-secondary: #d4af37;
+  --color-neutral: #0b1f3a;
+  --font-ar: 'Cairo', 'Tajawal', sans-serif;
+  --font-en: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-en);
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+body.rtl {
+  font-family: var(--font-ar);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-secondary);
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.site-header {
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+  box-shadow: 0 2px 16px rgba(11, 31, 58, 0.15);
+  background-color: var(--color-neutral);
+}
+
+.top-bar {
+  background-color: var(--color-primary);
+}
+
+.top-links .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.top-links .nav-link:hover,
+.top-links .nav-link:focus {
+  color: #fff;
+}
+
+.quick-links-label {
+  letter-spacing: 0.08em;
+}
+
+.main-navbar {
+  background-color: var(--color-neutral);
+  box-shadow: 0 6px 16px rgba(11, 31, 58, 0.25);
+}
+
+.navbar-brand img,
+.navbar-brand svg {
+  max-height: 52px;
+  width: auto;
+}
+
+.site-footer {
+  background-color: var(--color-neutral);
+  color: #fff;
+}
+
+.navbar-nav .mega-menu-parent > .nav-link::after {
+  display: inline-block;
+  margin-inline-start: 0.35rem;
+  vertical-align: middle;
+  content: '\25be';
+  font-size: 0.7rem;
+}
+
+.navbar-nav .dropdown-menu.mega-menu {
+  width: min(100%, 960px);
+  border: 0;
+  border-top: 3px solid var(--color-secondary);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 24px 48px rgba(11, 31, 58, 0.2);
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.navbar-nav .mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.navbar-nav .mega-menu-item {
+  min-width: 0;
+}
+
+.navbar-nav .mega-menu-link {
+  display: block;
+  font-weight: 600;
+  color: var(--color-neutral);
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.navbar-nav .mega-menu-link:hover,
+.navbar-nav .mega-menu-link:focus {
+  color: var(--color-primary);
+}
+
+.offcanvas .dropdown-menu {
+  position: static;
+  display: block;
+  float: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.offcanvas .mega-menu-link {
+  color: #fff;
+  padding: 0.5rem 0;
+}
+
+.btn-apply {
+  background-color: var(--color-secondary);
+  border: none;
+  color: #0b1f3a;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-apply:hover,
+.btn-apply:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.35);
+}
+
+.language-switcher .pll-parent-menu-item,
+.language-switcher .lang-item {
+  display: inline-block;
+  margin-inline-start: 0.5rem;
+}
+
+.language-switcher a {
+  color: #fff;
+  font-weight: 600;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus {
+  color: var(--color-secondary);
+}
+
+.hero-section {
+  background: linear-gradient(135deg, rgba(123, 28, 60, 0.9), rgba(11, 31, 58, 0.8));
+  color: #fff;
+  padding: 120px 0;
+}
+
+.hero-section .btn-primary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #0b1f3a;
+  font-weight: 700;
+}
+
+.footer-widgets {
+  padding: 60px 0;
+}
+
+.footer-bottom {
+  background-color: #061225;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+[dir="rtl"] .navbar-nav {
+  direction: rtl;
+}
+
+[dir="rtl"] .navbar-nav .dropdown-menu {
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .top-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .navbar-cta {
+    width: 100%;
+  }
+
+  .navbar-cta .btn-apply {
+    width: 100%;
+  }
+}
+
+.euss-hero-block {
+  background: linear-gradient(135deg, rgba(123, 28, 60, 0.92), rgba(11, 31, 58, 0.85));
+  color: #ffffff;
+  padding: 4.5rem 0;
+  border-radius: 0 0 3rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.euss-hero-block::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: -25%;
+  top: -30%;
+  width: 60%;
+  height: 160%;
+  background: rgba(212, 175, 55, 0.18);
+  transform: rotate(18deg);
+}
+
+.euss-hero-block .wp-block-columns {
+  position: relative;
+  z-index: 2;
+  gap: 2.5rem;
+}
+
+.euss-hero-content h1 {
+  font-size: clamp(2.75rem, 4vw, 3.75rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.euss-hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.euss-hero-buttons .wp-block-button__link {
+  background-color: var(--color-secondary);
+  color: var(--color-neutral);
+  font-weight: 700;
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+}
+
+.euss-hero-buttons .wp-block-button__link:hover,
+.euss-hero-buttons .wp-block-button__link:focus {
+  color: var(--color-neutral);
+  background-color: #f1d472;
+}
+
+.euss-hero-cards .euss-feature-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  backdrop-filter: blur(8px);
+  margin-bottom: 1.5rem;
+  min-height: 0;
+}
+
+.euss-hero-cards .euss-feature-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.euss-section {
+  padding: 4rem 0;
+}
+
+.euss-section--light {
+  background: #f6f7fb;
+}
+
+.euss-section h2 {
+  color: var(--color-neutral);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.euss-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.euss-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid rgba(11, 31, 58, 0.08);
+  box-shadow: 0 24px 48px rgba(11, 31, 58, 0.08);
+  padding: 1.75rem;
+  height: 100%;
+}
+
+.euss-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.euss-card p {
+  margin-bottom: 0;
+  color: #3a3a3a;
+}
+
+.euss-section .wp-block-buttons .wp-block-button__link {
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+}
+
+.euss-section .wp-block-buttons .wp-block-button__link:hover,
+.euss-section .wp-block-buttons .wp-block-button__link:focus {
+  background-color: var(--color-neutral);
+}
+
+[dir='rtl'] .euss-hero-block::after {
+  inset-inline-end: auto;
+  inset-inline-start: -25%;
+  transform: rotate(-18deg);
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav .mega-menu-parent > .nav-link::after {
+    display: none;
+  }
+
+  .navbar-nav .dropdown-menu.mega-menu {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1rem 0;
+  }
+
+  .euss-hero-block {
+    border-radius: 0 0 2rem 2rem;
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .euss-hero-block .wp-block-columns {
+    gap: 1.5rem;
+  }
+
+  .euss-hero-cards .euss-feature-card {
+    padding: 1.5rem;
+  }
+}

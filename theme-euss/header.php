@@ -18,8 +18,8 @@ $theme_euss_direction = function_exists( 'theme_euss_get_direction' ) ? theme_eu
         "@type": "EducationalOrganization",
         "name": "<?php echo esc_js( get_bloginfo( 'name' ) ); ?>",
         "url": "<?php echo esc_url( home_url() ); ?>",
-        "address": "<?php echo esc_js( get_option( 'euss_contact_address', 'TODO address // PDF p.24' ) ); ?>",
-        "telephone": "<?php echo esc_js( get_option( 'euss_contact_phone', 'TODO phone // PDF p.24' ) ); ?>"
+        "address": "<?php echo esc_js( get_option( 'euss_contact_address', 'Hildebrandsgatan 5, 41705 Gothenburg, Sweden' ) ); ?>",
+        "telephone": "<?php echo esc_js( get_option( 'euss_contact_phone', '+46 763091170' ) ); ?>"
     }
     </script>
 </head>
@@ -30,8 +30,8 @@ $theme_euss_direction = function_exists( 'theme_euss_get_direction' ) ? theme_eu
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap">
                 <div class="contact-info text-white small">
-                    <span class="me-3"><?php esc_html_e( 'Phone:', 'theme-euss' ); ?> <?php echo esc_html( get_option( 'euss_contact_phone', 'TODO phone // PDF p.24' ) ); ?></span>
-                    <span><?php esc_html_e( 'Email:', 'theme-euss' ); ?> <?php echo esc_html( get_option( 'euss_contact_email', 'TODO email // PDF p.24' ) ); ?></span>
+                    <span class="me-3"><?php esc_html_e( 'Phone:', 'theme-euss' ); ?> <?php echo esc_html( get_option( 'euss_contact_phone', '+46 763091170' ) ); ?></span>
+                    <span><?php esc_html_e( 'Email:', 'theme-euss' ); ?> <?php echo esc_html( get_option( 'euss_contact_email', 'info@edu.renita.se' ) ); ?></span>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <nav class="top-menu" aria-label="Top menu">

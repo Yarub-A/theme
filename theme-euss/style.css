@@ -16,9 +16,9 @@ Tags: education, bilingual, accessibility-ready, custom-menu, custom-logo, rtl-l
 
 /* Primary: Burgundy, Secondary: Gold/Cream, Neutral: Dark Blue */
 :root {
-  --color-primary: #7b1c3c; /* TODO confirm from logo */
-  --color-secondary: #d4af37; /* TODO confirm from logo */
-  --color-neutral: #0b1f3a; /* TODO confirm from logo */
+  --color-primary: #7b1c3c;
+  --color-secondary: #d4af37;
+  --color-neutral: #0b1f3a;
   --font-ar: 'Cairo', 'Tajawal', sans-serif;
   --font-en: 'Inter', 'Segoe UI', sans-serif;
 }

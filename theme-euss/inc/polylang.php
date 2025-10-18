@@ -13,9 +13,9 @@ add_action(
     'after_setup_theme',
     static function() {
         if ( function_exists( 'pll_the_languages' ) && function_exists( 'pll_register_string' ) ) {
-            pll_register_string( 'euss_contact_phone', 'TODO phone from PDF', 'theme-euss' ); // PDF p.24
-            pll_register_string( 'euss_contact_email', 'TODO email from PDF', 'theme-euss' ); // PDF p.24
-            pll_register_string( 'euss_contact_address', 'TODO address from PDF', 'theme-euss' ); // PDF p.24
+            pll_register_string( 'euss_contact_phone', '+46 763091170', 'theme-euss' ); // PDF p.24
+            pll_register_string( 'euss_contact_email', 'info@edu.renita.se', 'theme-euss' ); // PDF p.24
+            pll_register_string( 'euss_contact_address', 'Hildebrandsgatan 5, 41705 Gothenburg, Sweden', 'theme-euss' ); // PDF p.24
         }
     }
 );

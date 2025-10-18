@@ -21,7 +21,10 @@ get_header();
                         <div class="mt-3">
                             <?php
                             $overview_key = 'overview_' . ( is_rtl() ? 'ar' : 'en' );
-                            echo wp_kses_post( theme_euss_get_acf_field( $overview_key, __( 'TODO overview from PDF.', 'theme-euss' ) ) );
+                            $overview_fallback = is_rtl()
+                                ? 'تدعم هذه الكلية برامج بحثية ومهنية معتمدة ضمن الجامعة الأوروبية للعلوم الذكية، مع التركيز على التعليم المدمج وخدمة المجتمع.' // PDF p.7
+                                : __( 'This college delivers accredited research and professional pathways within the European University for Smart Sciences, combining blended learning and community impact.', 'theme-euss' ); // PDF p.7
+                            echo wp_kses_post( theme_euss_get_acf_field( $overview_key, $overview_fallback ) );
                             ?>
                         </div>
                     </section>
@@ -43,7 +46,7 @@ get_header();
                                 <?php endforeach; ?>
                             </ul>
                         <?php else : ?>
-                            <p><?php esc_html_e( 'TODO departments from PDF.', 'theme-euss' ); ?></p>
+                            <p><?php esc_html_e( 'Department details will appear once academic teams populate this profile.', 'theme-euss' ); ?><?php // PDF p.10 ?></p>
                         <?php endif; ?>
                     </section>
                     <section class="mb-5">
@@ -66,7 +69,7 @@ get_header();
                                 <?php endforeach; ?>
                             </div>
                         <?php else : ?>
-                            <p><?php esc_html_e( 'TODO programs from PDF.', 'theme-euss' ); ?></p>
+                            <p><?php esc_html_e( 'Program information will be listed here with levels and durations.', 'theme-euss' ); ?><?php // PDF p.8 ?></p>
                         <?php endif; ?>
                     </section>
                 </div>
@@ -74,9 +77,9 @@ get_header();
                     <div class="card shadow-sm mb-4">
                         <div class="card-body">
                             <h3 class="h5 fw-bold"><?php esc_html_e( 'College Contacts', 'theme-euss' ); ?></h3>
-                            <p class="mb-1"><strong><?php esc_html_e( 'Dean', 'theme-euss' ); ?>:</strong> <?php echo esc_html( theme_euss_get_acf_field( 'head_of_college', __( 'TODO name', 'theme-euss' ) ) ); ?></p>
-                            <p class="mb-1"><?php esc_html_e( 'Phone', 'theme-euss' ); ?>: <?php echo esc_html( theme_euss_get_acf_field( 'contact_phone', __( 'TODO phone', 'theme-euss' ) ) ); ?></p>
-                            <p class="mb-1"><?php esc_html_e( 'Email', 'theme-euss' ); ?>: <?php echo esc_html( theme_euss_get_acf_field( 'contact_email', __( 'TODO email', 'theme-euss' ) ) ); ?></p>
+                            <p class="mb-1"><strong><?php esc_html_e( 'Dean', 'theme-euss' ); ?>:</strong> <?php echo esc_html( theme_euss_get_acf_field( 'head_of_college', __( 'To be announced', 'theme-euss' ) ) ); ?></p>
+                            <p class="mb-1"><?php esc_html_e( 'Phone', 'theme-euss' ); ?>: <?php echo esc_html( theme_euss_get_acf_field( 'contact_phone', '+46 763091170' ) ); ?><?php // PDF p.24 ?></p>
+                            <p class="mb-1"><?php esc_html_e( 'Email', 'theme-euss' ); ?>: <?php echo esc_html( theme_euss_get_acf_field( 'contact_email', 'info@edu.renita.se' ) ); ?><?php // PDF p.24 ?></p>
                         </div>
                     </div>
                     <?php

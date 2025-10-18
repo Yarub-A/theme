@@ -22,12 +22,12 @@ if ( ! is_array( $partners ) ) {
 <?php else : ?>
 <img class="img-fluid" src="<?php echo esc_url( THEME_EUSS_URI . '/assets/img/partner-placeholder.png' ); ?>" alt="<?php esc_attr_e( 'Partner logo', 'theme-euss' ); ?>" loading="lazy">
 <?php endif; ?>
-<p class="mt-2 mb-0 fw-semibold"><?php echo esc_html( $partner['name_' . ( is_rtl() ? 'ar' : 'en' ) ] ?? __( 'TODO Partner Name', 'theme-euss' ) ); ?></p>
+<p class="mt-2 mb-0 fw-semibold"><?php echo esc_html( $partner['name_' . ( is_rtl() ? 'ar' : 'en' ) ] ?? __( 'Partner name coming soon', 'theme-euss' ) ); ?></p>
 </div>
 <?php endforeach; ?>
 <?php else : ?>
 <div class="col-12">
-<p class="text-muted"><?php esc_html_e( 'TODO partners from PDF // PDF p.25', 'theme-euss' ); ?></p>
+<p class="text-muted"><?php esc_html_e( 'Partnerships recognized through the International Accreditation Organization with Arab, European, and American universities.', 'theme-euss' ); ?><?php // PDF p.25 ?></p>
 </div>
 <?php endif; ?>
 </div>

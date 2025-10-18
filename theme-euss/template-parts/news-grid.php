@@ -31,7 +31,7 @@ $news_query = new WP_Query( [
 </div>
 <?php endwhile; ?>
 <?php else : ?>
-<p><?php esc_html_e( 'TODO populate news from PDF // PDF p.18', 'theme-euss' ); ?></p>
+<p><?php esc_html_e( 'Latest academic announcements will appear here as soon as news items are published.', 'theme-euss' ); ?><?php // PDF p.18 ?></p>
 <?php endif; wp_reset_postdata(); ?>
 </div>
 <div class="text-center mt-4">
@@ -43,8 +43,8 @@ $news_query = new WP_Query( [
 <h3 class="h5 mb-3"><?php esc_html_e( 'Upcoming Events', 'theme-euss' ); ?></h3>
 <ul class="list-unstyled mb-0">
 <li class="mb-3">
-<span class="d-block fw-bold"><?php esc_html_e( 'TODO Event Name // PDF p.18', 'theme-euss' ); ?></span>
-<small class="text-muted"><?php esc_html_e( 'TODO Event Date // PDF p.18', 'theme-euss' ); ?></small>
+<span class="d-block fw-bold"><?php esc_html_e( 'Final term examinations (Sweden campus)', 'theme-euss' ); ?><?php // PDF p.18 ?></span>
+<small class="text-muted"><?php esc_html_e( 'Held on-site for resident students with remote options for international cohorts.', 'theme-euss' ); ?><?php // PDF p.18 ?></small>
 </li>
 </ul>
 <a class="btn btn-primary w-100" href="#"><?php esc_html_e( 'More Events', 'theme-euss' ); ?></a>

@@ -29,42 +29,48 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'label' => __( 'University Name (AR)', 'theme-euss' ),
                 'name'  => 'university_name_ar',
                 'type'  => 'text',
-                'instructions' => ' // PDF p.2',
+                'default_value' => 'الجامعة الأوروبية للعلوم الذكية', // PDF p.2
+                'instructions'  => ' // PDF p.2',
             ],
             [
                 'key'   => 'field_euss_university_name_en',
                 'label' => __( 'University Name (EN)', 'theme-euss' ),
                 'name'  => 'university_name_en',
                 'type'  => 'text',
-                'instructions' => ' // PDF p.2',
+                'default_value' => 'European University for Smart Sciences', // PDF p.2
+                'instructions'  => ' // PDF p.2',
             ],
             [
                 'key'   => 'field_euss_address_ar',
                 'label' => __( 'Address (AR)', 'theme-euss' ),
                 'name'  => 'address_ar',
                 'type'  => 'textarea',
-                'instructions' => ' // PDF p.24',
+                'default_value' => '5 هيلدبراندسغاتان، 41705 غوتنبورغ، السويد', // PDF p.24
+                'instructions'  => ' // PDF p.24',
             ],
             [
                 'key'   => 'field_euss_address_en',
                 'label' => __( 'Address (EN)', 'theme-euss' ),
                 'name'  => 'address_en',
                 'type'  => 'textarea',
-                'instructions' => ' // PDF p.24',
+                'default_value' => 'Hildebrandsgatan 5, 41705 Gothenburg, Sweden', // PDF p.24
+                'instructions'  => ' // PDF p.24',
             ],
             [
                 'key'   => 'field_euss_phone',
                 'label' => __( 'Phone', 'theme-euss' ),
                 'name'  => 'phone',
                 'type'  => 'text',
-                'instructions' => ' // PDF p.24',
+                'default_value' => '+46 763091170', // PDF p.24
+                'instructions'  => ' // PDF p.24',
             ],
             [
                 'key'   => 'field_euss_email',
                 'label' => __( 'Email', 'theme-euss' ),
                 'name'  => 'email',
                 'type'  => 'email',
-                'instructions' => ' // PDF p.24',
+                'default_value' => 'info@edu.renita.se', // PDF p.24
+                'instructions'  => ' // PDF p.24',
             ],
             [
                 'key'   => 'field_euss_map_embed',
@@ -120,28 +126,48 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                         'label' => __( 'Title (AR)', 'theme-euss' ),
                         'name'  => 'title_ar',
                         'type'  => 'text',
-                        'instructions' => ' // PDF p.2',
+                        'default_value' => 'الجامعة الأوروبية للعلوم الذكية', // PDF p.2
+                        'instructions'  => ' // PDF p.2',
                     ],
                     [
                         'key'   => 'field_euss_hero_title_en',
                         'label' => __( 'Title (EN)', 'theme-euss' ),
                         'name'  => 'title_en',
                         'type'  => 'text',
-                        'instructions' => ' // PDF p.2',
+                        'default_value' => 'European University for Smart Sciences', // PDF p.2
+                        'instructions'  => ' // PDF p.2',
+                    ],
+                    [
+                        'key'   => 'field_euss_hero_subtitle_ar',
+                        'label' => __( 'Subtitle (AR)', 'theme-euss' ),
+                        'name'  => 'subtitle_ar',
+                        'type'  => 'textarea',
+                        'default_value' => 'تأسست الجامعة الأوروبية للعلوم الذكية في غوتنبورغ السويدية عام 2019/2020 برقم التسجيل 559306-7902، لتوفر تعليماً بحثياً حديثاً بثلاث لغات.', // PDF p.2
+                        'instructions'  => ' // PDF p.2',
+                    ],
+                    [
+                        'key'   => 'field_euss_hero_subtitle_en',
+                        'label' => __( 'Subtitle (EN)', 'theme-euss' ),
+                        'name'  => 'subtitle_en',
+                        'type'  => 'textarea',
+                        'default_value' => 'Founded in Gothenburg, Sweden in 2019/2020 under registration 559306-7902, the European University for Smart Sciences blends research-driven learning in Arabic, English, and Swedish.', // PDF p.2
+                        'instructions'  => ' // PDF p.2',
                     ],
                     [
                         'key'   => 'field_euss_hero_cta_label_ar',
                         'label' => __( 'CTA Label (AR)', 'theme-euss' ),
                         'name'  => 'cta_label_ar',
                         'type'  => 'text',
-                        'instructions' => ' // PDF p.23',
+                        'default_value' => 'قدّم الآن', // PDF p.23
+                        'instructions'  => ' // PDF p.23',
                     ],
                     [
                         'key'   => 'field_euss_hero_cta_label_en',
                         'label' => __( 'CTA Label (EN)', 'theme-euss' ),
                         'name'  => 'cta_label_en',
                         'type'  => 'text',
-                        'instructions' => ' // PDF p.23',
+                        'default_value' => 'Apply Now', // PDF p.23
+                        'instructions'  => ' // PDF p.23',
                     ],
                     [
                         'key'   => 'field_euss_hero_cta_url',

@@ -21,7 +21,11 @@ get_header();
         <aside class="col-lg-4">
             <div class="bg-light p-4 rounded shadow-sm">
                 <h2 class="h5 mb-3"><?php esc_html_e( 'Admissions Highlights', 'theme-euss' ); ?> <small class="text-muted"><?php esc_html_e( '// PDF p.23', 'theme-euss' ); ?></small></h2>
-                <p class="small mb-0"><?php esc_html_e( 'TODO populate admissions highlights from PDF.', 'theme-euss' ); ?></p>
+                <ul class="small mb-0 ps-3">
+                    <li><?php esc_html_e( 'Accepts graduates of scientific, literary, commercial, and intermediate institutes.', 'theme-euss' ); ?><?php // PDF p.23 ?></li>
+                    <li><?php esc_html_e( 'Inclusive admissions for international and special-needs applicants without certificate restrictions.', 'theme-euss' ); ?><?php // PDF p.23 ?></li>
+                    <li><?php esc_html_e( 'Bachelor applicants must hold a baccalaureate diploma and submit passport copy, CV, photo, contact details, and registration fees.', 'theme-euss' ); ?><?php // PDF p.23 ?></li>
+                </ul>
             </div>
         </aside>
     </div>

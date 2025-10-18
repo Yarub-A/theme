@@ -12,7 +12,7 @@
             <div class="row g-4">
                 <div class="col-md-3 text-white">
                     <h5 class="text-uppercase fw-bold mb-3"><?php bloginfo( 'name' ); ?></h5>
-                    <p><?php esc_html_e( 'TODO university overview // PDF p.2', 'theme-euss' ); ?></p>
+                    <p><?php esc_html_e( 'Established in Gothenburg, Sweden in 2019/2020, the European University for Smart Sciences delivers blended Arabic, English, and Swedish higher education across research-driven colleges.', 'theme-euss' ); ?><?php // PDF p.2 ?></p>
                 </div>
                 <div class="col-md-3 text-white">
                     <h6 class="text-uppercase fw-bold mb-3"><?php esc_html_e( 'Quick Links', 'theme-euss' ); ?></h6>
@@ -28,9 +28,9 @@
                 <div class="col-md-3 text-white">
                     <h6 class="text-uppercase fw-bold mb-3"><?php esc_html_e( 'Contact', 'theme-euss' ); ?></h6>
                     <ul class="list-unstyled small">
-                        <li><?php echo esc_html( get_option( 'euss_contact_address', 'TODO address // PDF p.24' ) ); ?></li>
-                        <li><?php echo esc_html( get_option( 'euss_contact_phone', 'TODO phone // PDF p.24' ) ); ?></li>
-                        <li><?php echo esc_html( get_option( 'euss_contact_email', 'TODO email // PDF p.24' ) ); ?></li>
+                        <li><?php echo esc_html( get_option( 'euss_contact_address', 'Hildebrandsgatan 5, 41705 Gothenburg, Sweden' ) ); ?><?php // PDF p.24 ?></li>
+                        <li><?php echo esc_html( get_option( 'euss_contact_phone', '+46 763091170' ) ); ?><?php // PDF p.24 ?></li>
+                        <li><?php echo esc_html( get_option( 'euss_contact_email', 'info@edu.renita.se' ) ); ?><?php // PDF p.24 ?></li>
                     </ul>
                 </div>
                 <div class="col-md-3 text-white">

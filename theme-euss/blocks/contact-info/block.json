@@ -1,0 +1,12 @@
+{
+  "apiVersion": 2,
+  "name": "theme-euss/contact-info",
+  "title": "EUSS Contact Info",
+  "category": "theme-euss",
+  "icon": "id",
+  "description": "Outputs the university contact details from theme options.",
+  "supports": {
+    "html": false
+  },
+  "render": "file:./render.php"
+}

@@ -1,0 +1,12 @@
+{
+  "apiVersion": 2,
+  "name": "theme-euss/footer-copy",
+  "title": "EUSS Footer Copyright",
+  "category": "theme-euss",
+  "icon": "admin-site",
+  "description": "Shows the current year and site name in the footer.",
+  "supports": {
+    "html": false
+  },
+  "render": "file:./render.php"
+}

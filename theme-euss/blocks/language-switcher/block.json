@@ -1,0 +1,12 @@
+{
+  "apiVersion": 2,
+  "name": "theme-euss/language-switcher",
+  "title": "EUSS Language Switcher",
+  "category": "theme-euss",
+  "icon": "translation",
+  "description": "Displays the Polylang language switcher with theme styling.",
+  "supports": {
+    "html": false
+  },
+  "render": "file:./render.php"
+}

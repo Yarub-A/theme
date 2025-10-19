@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "custom": {
+      "brand": {
+        "primary": "#7e1b2a",
+        "secondary": "#c9a349",
+        "neutral": "#1f2940"
+      }
+    },
+    "color": {
+      "palette": [
+        { "slug": "primary", "name": "Primary Burgundy", "color": "#7e1b2a" },
+        { "slug": "secondary", "name": "Secondary Gold", "color": "#c9a349" },
+        { "slug": "neutral", "name": "Neutral Navy", "color": "#1f2940" },
+        { "slug": "base", "name": "Base White", "color": "#ffffff" },
+        { "slug": "muted", "name": "Muted Gray", "color": "#f2f2f4" }
+      ],
+      "text": true,
+      "link": true
+    },
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "units": [ "px", "em", "rem", "%" ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Inter', 'Segoe UI', sans-serif",
+          "name": "Inter",
+          "slug": "inter"
+        },
+        {
+          "fontFamily": "'Cairo', 'Tajawal', sans-serif",
+          "name": "Cairo",
+          "slug": "cairo"
+        }
+      ],
+      "lineHeight": true,
+      "dropCap": false
+    },
+    "blocks": {
+      "core/navigation": {
+        "layout": {
+          "type": "flex",
+          "justifyContent": "center"
+        }
+      }
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--inter)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--cairo)"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    { "name": "header", "title": "Header", "area": "header" },
+    { "name": "footer", "title": "Footer", "area": "footer" }
+  ]
+}

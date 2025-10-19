@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">EUSS Logo Placeholder</title>
+  <desc id="logoDesc">Placeholder logo block for the European University for Smart Sciences.</desc>
+  <rect width="220" height="60" rx="12" fill="#0b1f3a" />
+  <text x="110" y="38" fill="#f2e4c6" font-family="'Cairo', 'Inter', sans-serif" font-size="28" font-weight="700" text-anchor="middle">EUSS</text>
+</svg>

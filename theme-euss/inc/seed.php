@@ -1436,6 +1436,34 @@ function theme_euss_seed_menu_legacy_key_from_post( $menu_item ) {
     return theme_euss_seed_menu_legacy_key( $type, $object, $object_id, $parent_id, $url );
 }
 
+function theme_euss_seed_menu_item_is_broken( WP_Post $menu_item ) {
+    if ( 'custom' === ( $menu_item->type ?? 'custom' ) ) {
+        $url = isset( $menu_item->url ) ? trim( (string) $menu_item->url ) : '';
+        return '' === $url;
+    }
+
+    $object_id = (int) ( $menu_item->object_id ?? 0 );
+    if ( $object_id <= 0 ) {
+        return true;
+    }
+
+    if ( 'post_type' === ( $menu_item->type ?? '' ) ) {
+        return ! get_post( $object_id );
+    }
+
+    if ( 'taxonomy' === ( $menu_item->type ?? '' ) ) {
+        $taxonomy = $menu_item->object ?? '';
+        if ( '' === $taxonomy ) {
+            return true;
+        }
+
+        $term = get_term( $object_id, $taxonomy );
+        return ! ( $term && ! is_wp_error( $term ) );
+    }
+
+    return false;
+}
+
 function theme_euss_create_menus( $pages, $posts = [] ) {
     $locations = [
         'main_ar'   => 'main_ar',
@@ -1678,38 +1706,51 @@ function theme_euss_create_menus( $pages, $posts = [] ) {
         $existing_map = [];
         $used_items   = [];
 
-        if ( $existing ) {
-            foreach ( $existing as $menu_item ) {
-                $seed_meta = get_post_meta( $menu_item->ID, '_theme_euss_seed_menu', true );
-                if ( is_string( $seed_meta ) && '' !== $seed_meta ) {
-                    $existing_map[ $seed_meta ] = (int) $menu_item->ID;
-                }
+    if ( $existing ) {
+        foreach ( $existing as $menu_item ) {
+            if ( ! $menu_item instanceof WP_Post ) {
+                continue;
+            }
 
-                $legacy_key = theme_euss_seed_menu_legacy_key_from_post( $menu_item );
-                if ( '' !== $legacy_key ) {
-                    $existing_map[ 'legacy:' . $legacy_key ] = (int) $menu_item->ID;
-                }
+            if ( theme_euss_seed_menu_item_is_broken( $menu_item ) ) {
+                wp_delete_post( $menu_item->ID, true );
+                continue;
+            }
+
+            $seed_meta = get_post_meta( $menu_item->ID, '_theme_euss_seed_menu', true );
+            if ( is_string( $seed_meta ) && '' !== $seed_meta ) {
+                $existing_map[ $seed_meta ] = (int) $menu_item->ID;
+            }
+
+            $legacy_key = theme_euss_seed_menu_legacy_key_from_post( $menu_item );
+            if ( '' !== $legacy_key ) {
+                $existing_map[ 'legacy:' . $legacy_key ] = (int) $menu_item->ID;
             }
         }
+    }
 
-        theme_euss_sync_menu_branch( $items, $pages, $posts, $menu_id, $lang, 0, $existing_map, $used_items, '', $location );
+    theme_euss_sync_menu_branch( $items, $pages, $posts, $menu_id, $lang, 0, $existing_map, $used_items, '', $location );
 
-        if ( $existing ) {
-            foreach ( $existing as $menu_item ) {
-                $menu_item_id = (int) $menu_item->ID;
+    if ( $existing ) {
+        foreach ( $existing as $menu_item ) {
+            $menu_item_id = (int) $menu_item->ID;
 
-                if ( $menu_item_id <= 0 || in_array( $menu_item_id, $used_items, true ) ) {
-                    continue;
-                }
+            if ( $menu_item_id <= 0 || in_array( $menu_item_id, $used_items, true ) ) {
+                continue;
+            }
 
-                $menu_post_type = get_post_type( $menu_item_id );
-                $seed_meta      = get_post_meta( $menu_item_id, '_theme_euss_seed_menu', true );
+            $menu_post_type = get_post_type( $menu_item_id );
+            $seed_meta      = get_post_meta( $menu_item_id, '_theme_euss_seed_menu', true );
 
-                if ( 'nav_menu_item' === $menu_post_type && is_string( $seed_meta ) && preg_match( '/^menu[-:]/', $seed_meta ) ) {
-                    wp_delete_post( $menu_item_id, true );
-                }
+            $menu_post = get_post( $menu_item_id );
+            $is_broken = ! $menu_post instanceof WP_Post || theme_euss_seed_menu_item_is_broken( $menu_post );
+            $is_seeded = ( 'nav_menu_item' === $menu_post_type && is_string( $seed_meta ) && preg_match( '/^menu[-:]/', $seed_meta ) );
+
+            if ( $is_broken || $is_seeded ) {
+                wp_delete_post( $menu_item_id, true );
             }
         }
+    }
     }
 
     $current_locations = (array) get_theme_mod( 'nav_menu_locations', [] );
@@ -1866,47 +1907,54 @@ function theme_euss_sync_menu_branch( array $items, array $pages, array $posts, 
         $seed_key       = theme_euss_seed_menu_meta_value( $menu_location, $lang, $seed_path );
         $legacy_map_key = theme_euss_seed_menu_legacy_key( $menu_type, $object_name, $object_id, $parent_item_id, $menu_url );
         $legacy_lookup  = 'legacy:' . $legacy_map_key;
-        $menu_item_id   = 0;
 
+        $existing_id = 0;
         if ( isset( $existing_map[ $seed_key ] ) ) {
-            $menu_item_id = (int) $existing_map[ $seed_key ];
+            $existing_id = (int) $existing_map[ $seed_key ];
         } elseif ( isset( $existing_map[ $legacy_lookup ] ) ) {
-            $menu_item_id = (int) $existing_map[ $legacy_lookup ];
-        } else {
-            $menu_data = [
-                'menu-item-title'     => $menu_title,
-                'menu-item-object'    => $object_name,
-                'menu-item-type'      => $menu_type,
-                'menu-item-object-id' => $object_id,
-                'menu-item-status'    => 'publish',
-                'menu-item-parent-id' => $parent_item_id,
-            ];
-
-            if ( 'custom' === $menu_type ) {
-                $menu_data['menu-item-url'] = $menu_url;
-            }
-
-            $menu_item_id = wp_update_nav_menu_item( $menu_id, 0, $menu_data );
-
-            if ( is_wp_error( $menu_item_id ) || ! $menu_item_id ) {
-                continue;
-            }
-
-            $menu_item_id = (int) $menu_item_id;
+            $existing_id = (int) $existing_map[ $legacy_lookup ];
         }
 
-        if ( $menu_item_id > 0 ) {
-            update_post_meta( $menu_item_id, '_theme_euss_seed_menu', $seed_key );
-            $existing_map[ $seed_key ]      = $menu_item_id;
-            $existing_map[ $legacy_lookup ] = $menu_item_id;
-
-            if ( ! in_array( $menu_item_id, $used_items, true ) ) {
-                $used_items[] = $menu_item_id;
+        if ( $existing_id > 0 ) {
+            $existing_post = get_post( $existing_id );
+            if ( ! $existing_post instanceof WP_Post || theme_euss_seed_menu_item_is_broken( $existing_post ) ) {
+                wp_delete_post( $existing_id, true );
+                $existing_id = 0;
+                unset( $existing_map[ $seed_key ], $existing_map[ $legacy_lookup ] );
             }
+        }
 
-            if ( ! empty( $item['children'] ) ) {
-                theme_euss_sync_menu_branch( $item['children'], $pages, $posts, $menu_id, $lang, $menu_item_id, $existing_map, $used_items, $seed_path, $menu_location );
-            }
+        $menu_data = [
+            'menu-item-title'     => $menu_title,
+            'menu-item-object'    => $object_name,
+            'menu-item-type'      => $menu_type,
+            'menu-item-object-id' => $object_id,
+            'menu-item-status'    => 'publish',
+            'menu-item-parent-id' => $parent_item_id,
+        ];
+
+        if ( 'custom' === $menu_type ) {
+            $menu_data['menu-item-url'] = $menu_url;
+        }
+
+        $menu_item_id = wp_update_nav_menu_item( $menu_id, $existing_id, $menu_data );
+
+        if ( is_wp_error( $menu_item_id ) || ! $menu_item_id ) {
+            continue;
+        }
+
+        $menu_item_id = (int) $menu_item_id;
+
+        update_post_meta( $menu_item_id, '_theme_euss_seed_menu', $seed_key );
+        $existing_map[ $seed_key ]      = $menu_item_id;
+        $existing_map[ $legacy_lookup ] = $menu_item_id;
+
+        if ( ! in_array( $menu_item_id, $used_items, true ) ) {
+            $used_items[] = $menu_item_id;
+        }
+
+        if ( ! empty( $item['children'] ) ) {
+            theme_euss_sync_menu_branch( $item['children'], $pages, $posts, $menu_id, $lang, $menu_item_id, $existing_map, $used_items, $seed_path, $menu_location );
         }
     }
 }

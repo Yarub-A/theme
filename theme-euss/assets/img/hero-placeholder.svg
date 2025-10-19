@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">EUSS Hero Placeholder</title>
+  <desc id="desc">Gradient placeholder banner for the European University for Smart Sciences.</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6a1b2f" />
+      <stop offset="100%" stop-color="#1b2a4f" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#grad)"/>
+  <g fill="#f2e4c6" font-family="'Inter', 'Segoe UI', sans-serif" text-anchor="middle">
+    <text x="800" y="290" font-size="96" font-weight="700">EUSS</text>
+    <text x="800" y="360" font-size="32">European University for Smart Sciences</text>
+  </g>
+</svg>

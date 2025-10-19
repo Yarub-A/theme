@@ -1,0 +1,13 @@
+{
+  "apiVersion": 2,
+  "name": "theme-euss/partners-strip",
+  "title": "EUSS Partners Strip",
+  "category": "theme-euss",
+  "icon": "group",
+  "description": "Lists strategic partners from the options page.",
+  "supports": {
+    "align": [ "wide", "full" ],
+    "html": false
+  },
+  "render": "file:./render.php"
+}

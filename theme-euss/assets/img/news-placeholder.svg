@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="newsTitle newsDesc">
+  <title id="newsTitle">News Placeholder</title>
+  <desc id="newsDesc">Neutral illustration used as a placeholder for news thumbnails.</desc>
+  <defs>
+    <linearGradient id="newsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142748" />
+      <stop offset="100%" stop-color="#8a2646" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#newsGrad)" />
+  <g fill="#f9f2dd" font-family="'Inter', 'Segoe UI', sans-serif" text-anchor="middle">
+    <text x="480" y="280" font-size="72" font-weight="600">News</text>
+    <text x="480" y="340" font-size="28">European University for Smart Sciences</text>
+  </g>
+</svg>
